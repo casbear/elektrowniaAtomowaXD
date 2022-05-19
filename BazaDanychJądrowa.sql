@@ -11,7 +11,7 @@ CREATE TABLE Reaktor (
   TemperaturaReaktor int,
   RadioaktywnoscPierw int,
   RadioaktywnoscWtor int,
-  Temperaturapierw int,
+  TemperaturaPierw int,
   TemperaturaWtor int,
   Cisnienie int,
   ZapotrzebowaniePrad int,
