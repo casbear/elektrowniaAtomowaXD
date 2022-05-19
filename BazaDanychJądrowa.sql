@@ -16,17 +16,17 @@ CREATE TABLE Reaktor (
   Cisnienie int,
   ZapotrzebowaniePrad int,
   ProdukcjaPrad int,
-  Zu¿yciePrad int,
+  ZuÅ¼yciePrad int,
   CzyDziala bit,
-  Ciep³o int 
+  CiepÅ‚o int 
 );
 
 CREATE TABLE Pracownik (
-  Id int primary key
-  Imiê varchar(30),
-  Nazwisko varchar(30),
+  Id int primary key,
+  Imie varchar(30) check(len(Imie)>3),
+  Nazwisko varchar(30) check(len(Nazwisko)>3),
   StanRoboczy bit,
-  Stanowisko varchar(30),
+  Stanowisko varchar(30) check(len(Stanowisko)>3),
 );
 
 CREATE TABLE Alarm (
@@ -37,12 +37,12 @@ CREATE TABLE Alarm (
 );
 
 CREATE TABLE Pracownik_Reaktor (
-PracwonikId int not null foreign key references Pracownicy(Id),
+PracwonikId int not null foreign key references Pracownik(Id),
 ReaktorId int not null foreign key references Reaktor(Id)
 );
 
 CREATE TABLE Dostawa (
   Id int primary key,
-  TypDostawy varchar(30) not null,
+  TypDostawy varchar(30) not null check(len(TypDostawy)>3),
   Godzina time,
 );
