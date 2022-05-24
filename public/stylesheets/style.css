@@ -1,6 +1,11 @@
 body {
 background-image: url('../images/steelsheet.png')
 }
+@font-face {
+    font-family: "SegmentedDisplay";
+    src: url(../fonts/Seven_Segment.ttf);
+}
+
 .navbar {
     list-style-type: none;
     margin: 0;
