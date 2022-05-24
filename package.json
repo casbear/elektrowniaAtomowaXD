@@ -1,19 +1,21 @@
 {
-  "name": "elektrowniaatomowaxd",
-  "version": "1.0.0",
-  "description": "CHUJ",
-  "main": "index.js",
+  "name": "magazyn",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www",
+    "watch": "nodemon"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/casbear/elektrowniaAtomowaXD.git"
+  "dependencies": {
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.17.2",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "mssql": "^7.2.0"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/casbear/elektrowniaAtomowaXD/issues"
-  },
-  "homepage": "https://github.com/casbear/elektrowniaAtomowaXD#readme"
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
