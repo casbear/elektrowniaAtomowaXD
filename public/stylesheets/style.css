@@ -1,6 +1,7 @@
 body {
 background-image: url('../images/steelsheet.png')
 }
+
 @font-face {
     font-family: "SegmentedDisplay";
     src: url(../fonts/Seven_Segment.ttf);
@@ -11,10 +12,12 @@ background-image: url('../images/steelsheet.png')
     margin: 0;
     padding: 0;
     overflow: hidden;
-} 
+}
+
 .row {
     float: left;
 }
+
 .row a{
     display: block;
     padding: 8px;
