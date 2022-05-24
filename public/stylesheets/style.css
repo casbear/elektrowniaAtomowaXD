@@ -10,16 +10,17 @@ background-image: url('../images/steelsheet.png')
 .navbar {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0;;
     overflow: hidden;
 }
 
 .row {
     float: left;
+    padding: 10px;
 }
 
 .row a{
     display: block;
-    padding: 8px;
+    padding: 10px;
     background-color: #dddddd;
 }
