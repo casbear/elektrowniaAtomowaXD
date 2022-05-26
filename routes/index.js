@@ -4,8 +4,7 @@ const sql = require('mssql')
 const router = express.Router()
 const { request } = require('../database')
 
-async function showProducts(req, res) {
-  let products = []
+async function MainConsole(req, res) {
 
   try {
     const dbRequest = await request()
