@@ -4,31 +4,19 @@ const sql = require('mssql')
 const router = express.Router()
 const { request } = require('../database')
 
-async function MainConsole(req, res) {
+async function getbasicinfo(req, res) {
 
   try {
     const dbRequest = await request()
     let result;
-
-    if (req.query.kategoria) {
-      result = await dbRequest
-        .input('Kategoria', sql.VarChar(50), req.query.kategoria)
-        .query('SELECT * FROM Produkty WHERE Kategoria = @Kategoria')
-    } else {
-      result = await dbRequest.query('SELECT * FROM Produkty')
-    }
-
-    products = result.recordset
+    result = await dbRequest.query('SELECT * FROM Reaktor')
+    reactor = result.recordset
   } catch (err) {
     console.error('Nie udało się pobrać produktów', err)
   }
 
-  res.render('index', { 
-    title: 'Lista produktów', 
-    products: products, 
-    message: res.message, 
-    kategoria: req.query.kategoria,
-    userLogin: req.session?.userLogin
+  res.render('MainConsole', { 
+    reactor: reactor
    })
 }
 
@@ -104,7 +92,7 @@ function logout(req, res) {
   showProducts(req, res);
 }
 
-router.get('/', showProducts);
+router.get('/', getbasicinfo);
 router.get('/new-product', showNewProductForm);
 router.post('/new-product', addNewProduct);
 router.post('/product/:id/delete', deleteProduct);

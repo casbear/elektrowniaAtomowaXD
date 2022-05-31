@@ -3,15 +3,15 @@ background-image: url('../images/steelsheet.png')
 }
 
 @font-face {
-    font-family: "SegmentedDisplay";
+    font-family: "Segmented";
     src: url(../fonts/Seven_Segment.ttf);
 }
 @font-face {
-    font-family: "roughtTypewriter";
+    font-family: "Typewriter";
     src: url(../fonts/rough_typewriter.otf);
 }
 @font-face {
-    font-family: "roughtTypewriterBold";
+    font-family: "TypewriterBold";
     src: url(../fonts/rough_typewriter-bld-itl.otf);
 }
 
@@ -32,4 +32,10 @@ background-image: url('../images/steelsheet.png')
     display: block;
     padding: 10px;
     background-color: #dddddd;
+}
+
+.value-box {
+    font-family: TypeWriterBold;    
+}
+.value {
 }

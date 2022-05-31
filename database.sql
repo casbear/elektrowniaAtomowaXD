@@ -46,3 +46,9 @@ CREATE TABLE Dostawa (
   TypDostawy varchar(30) not null check(len(TypDostawy)>3),
   Godzina time,
 );
+
+INSERT INTO Reaktor (id ,TemperaturaReaktor)
+values(
+  1,
+  12
+);
