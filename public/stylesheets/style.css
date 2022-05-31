@@ -6,6 +6,15 @@ background-image: url('../images/steelsheet.png')
     font-family: "SegmentedDisplay";
     src: url(../fonts/Seven_Segment.ttf);
 }
+@font-face {
+    font-family: "roughtTypewriter";
+    src: url(../fonts/rough_typewriter.otf);
+}
+@font-face {
+    font-family: "roughtTypewriterBold";
+    src: url(../fonts/rough_typewriter-bld-itl.otf);
+}
+
 
 .navbar {
     list-style-type: none;
