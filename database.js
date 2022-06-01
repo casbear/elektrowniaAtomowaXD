@@ -1,7 +1,7 @@
 const sql = require('mssql')
 
-const DB_USER = 'app'
-const DB_PWD = 'app'
+const DB_USER = 'app_data'
+const DB_PWD = 'app_pass'
 const DB_NAME = 'Elektrownia'
 
 const sqlConfig = {
