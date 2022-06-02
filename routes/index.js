@@ -21,6 +21,57 @@ async function getbasicinfo(req, res) {
    })
 }
 
+async function getPracownikInfo(req, res) {
+
+  try {
+    const dbRequest = await request()
+    let result;
+    result = await dbRequest.query('SELECT * FROM Pracownik');
+    reactor = result.recordset;
+    console.log(reactor)
+  } catch (err) {
+    console.error('Problem z pobraniem informacji pracownika', err)
+  }
+
+  res.render('workers', { 
+    reactor: reactor
+   })
+}
+
+async function getDeliveryinfo(req, res) {
+
+  try {
+    const dbRequest = await request()
+    let result;
+    result = await dbRequest.query('SELECT * FROM Dostawa');
+    reactor = result.recordset;
+    console.log(reactor)
+  } catch (err) {
+    console.error('Problem z pobraniem informacji dostaw', err)
+  }
+
+  res.render('delieveries', { 
+    reactor: reactor
+   })
+}
+
+async function getAlarminfo(req, res) {
+
+  try {
+    const dbRequest = await request()
+    let result;
+    result = await dbRequest.query('SELECT * FROM Alarmy');
+    reactor = result.recordset;
+    console.log(reactor)
+  } catch (err) {
+    console.error('Problem z pobraniem informacji alarmow', err)
+  }
+
+  res.render('alarms', { 
+    reactor: reactor
+   })
+}
+
 async function showNewProductForm(req, res) {
   res.render('new-product', { title: 'Nowy produkt' })
 }

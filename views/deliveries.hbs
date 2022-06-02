@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/reset.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../seven_segment/Seven Segment.ttf">
+    <title>Panel Kontrolny</title>
+</head>
+<body>
+    <ul class="navbar">
+        <li><a class="row" href="alarms.hbs">Alarmy</a></li>
+        <li><a class="row" href="workers.hbs">Pracownicy</a></li>
+        <li><a class="row" href="deliveries.hbs">Dostawy</a></li>
+        <li><a class="row" href="index.hbs">Wróć</a></li>
+    </ul>
+    <div>
+        <div>
+            <ul>
+                <li><a class="value-box"><p class="value">{{reactor.0.TypDostawy}}</p></a></li>
+                <li><a class="value-box"><p class="value">{{reactor.0.Godzina}}</p></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
