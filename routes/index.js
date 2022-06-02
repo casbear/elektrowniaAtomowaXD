@@ -27,14 +27,14 @@ async function getPracownikInfo(req, res) {
     const dbRequest = await request()
     let result;
     result = await dbRequest.query('SELECT * FROM Pracownik');
-    reactor = result.recordset;
-    console.log(reactor)
+    Workers = result.recordset;
+    console.log(Workers)
   } catch (err) {
     console.error('Problem z pobraniem informacji pracownika', err)
   }
 
   res.render('workers', { 
-    reactor: reactor
+    Workers: Workers
    })
 }
 
@@ -145,7 +145,7 @@ function logout(req, res) {
 }
 
 router.get('/', getbasicinfo);
-router.get('/new-product', showNewProductForm);
+router.get('/workers', getPracownikInfo);
 router.post('/new-product', addNewProduct);
 router.post('/product/:id/delete', deleteProduct);
 router.get('/login', showLoginForm);
