@@ -9,13 +9,11 @@ async function getbasicinfo(req, res) {
   try {
     const dbRequest = await request()
     let result;
-    console.log("hey")
     result = await dbRequest.query('SELECT * FROM Reaktor');
     reactor = result.recordset;
-    console.log("hello")
     console.log(reactor)
   } catch (err) {
-    console.error('Nie udało się pobrać produktów', err)
+    console.error('Problem z pobraniem informacji reaktora', err)
   }
 
   res.render('MainConsole', { 

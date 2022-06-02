@@ -47,10 +47,20 @@ CREATE TABLE Dostawa (
   Godzina time,
 );
 
-INSERT INTO Reaktor (id ,TemperaturaReaktor, TemperaturaPierw, TemperaturaWtor)
+INSERT INTO Reaktor ()
 values(
   1,
   12,
   20,
-  20
+  21,
+  5,
+  7,
+  8,
+  12,
+  34,
+  45,
+  65,
+  1,
+  13,
+  56
 );
