@@ -150,6 +150,6 @@ router.post('/new-product', addNewProduct);
 router.post('/product/:id/delete', deleteProduct);
 router.get('/login', showLoginForm);
 router.post('/login', login);
-router.post('/logout', logout);
+router.post('/logout', logout); 
 
 module.exports = router;
