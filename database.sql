@@ -5,7 +5,7 @@ use Elektrownia
 go
 
 CREATE TABLE Reaktor (
-  Id int primary key,
+  Id int identity primary key,
   PretyPaliwo int,
   PretyKontrolne int,
   TemperaturaReaktor int,
@@ -20,6 +20,7 @@ CREATE TABLE Reaktor (
   CzyDziala bit,
   Ciepło int 
 );
+
 
 CREATE TABLE Pracownik (
   Id int primary key,
@@ -47,9 +48,8 @@ CREATE TABLE Dostawa (
   Godzina time,
 );
 
-INSERT INTO Reaktor ()
+INSERT INTO Reaktor
 values(
-  1,
   12,
   20,
   21,
