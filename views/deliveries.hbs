@@ -11,18 +11,30 @@
 </head>
 <body>
     <ul class="navbar">
-        <li><a class="row" href="alarms.hbs">Alarmy</a></li>
-        <li><a class="row" href="workers.hbs">Pracownicy</a></li>
-        <li><a class="row" href="deliveries.hbs">Dostawy</a></li>
-        <li><a class="row" href="index.hbs">Wróć</a></li>
+        <li><a class="row" href="alarms">Alarmy</a></li>
+        <li><a class="row" href="workers">Pracownicy</a></li>
+        <li><a class="row" href="deliveries">Dostawy</a></li>
+        <li><a class="row" href="index">Wróć</a></li>
     </ul>
     <div>
-        <div>
-            <ul>
-                <li><a class="value-box"><p class="value">{{reactor.0.TypDostawy}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.Godzina}}</p></a></li>
-            </ul>
-        </div>
+        <table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Typ Dostawy</th>
+            <th>Godzina Dostawy</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td>{{this.Id}}</td>
+            <td>{{this.TypDostawy}}</td>
+            <td>{{this.Godzina}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
     </div>
 </body>
 </html>

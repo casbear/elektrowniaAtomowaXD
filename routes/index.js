@@ -21,54 +21,54 @@ async function getbasicinfo(req, res) {
    })
 }
 
-async function getPracownikInfo(req, res) {
+async function getworkerInfo(req, res) {
 
   try {
     const dbRequest = await request()
     let result;
     result = await dbRequest.query('SELECT * FROM Pracownik');
-    Workers = result.recordset;
-    console.log(Workers)
+    workers = result.recordset;
+    console.log(workers)
   } catch (err) {
     console.error('Problem z pobraniem informacji pracownika', err)
   }
 
   res.render('workers', { 
-    Workers: Workers
+    workers: workers
    })
 }
 
-async function getDeliveryinfo(req, res) {
+async function getdeliveryinfo(req, res) {
 
   try {
     const dbRequest = await request()
     let result;
     result = await dbRequest.query('SELECT * FROM Dostawa');
-    reactor = result.recordset;
-    console.log(reactor)
+    delivery = result.recordset;
+    console.log(delivery)
   } catch (err) {
     console.error('Problem z pobraniem informacji dostaw', err)
   }
 
-  res.render('delieveries', { 
-    reactor: reactor
+  res.render('deliveries', { 
+    delivery : delivery
    })
 }
 
-async function getAlarminfo(req, res) {
+async function getalarminfo(req, res) {
 
   try {
     const dbRequest = await request()
     let result;
-    result = await dbRequest.query('SELECT * FROM Alarmy');
-    reactor = result.recordset;
-    console.log(reactor)
+    resuls = await dbRequest.query('SELECT * FROM Alarmy');
+    alarms = result.recordset;
+    console.log(alarms)
   } catch (err) {
     console.error('Problem z pobraniem informacji alarmow', err)
   }
 
   res.render('alarms', { 
-    reactor: reactor
+    alarms: alarms
    })
 }
 
@@ -145,9 +145,9 @@ function logout(req, res) {
 }
 
 router.get('/', getbasicinfo);
-router.get('/workers', getPracownikInfo);
-router.post('/new-product', addNewProduct);
-router.post('/product/:id/delete', deleteProduct);
+router.get('/workers', getworkerInfo);
+router.get('/alarms', getalarminfo);
+router.get('/deliveries', getdeliveryinfo);
 router.get('/login', showLoginForm);
 router.post('/login', login);
 router.post('/logout', logout); 

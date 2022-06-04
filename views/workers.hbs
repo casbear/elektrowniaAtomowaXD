@@ -11,18 +11,19 @@
 </head>
 <body>
     <ul class="navbar">
-        <li><a class="row" href="alarms.hbs">Alarmy</a></li>
+        <li><a class="row" href="alarms">Alarmy</a></li>
         <li><a class="row" href="workers">Pracownicy</a></li>
-        <li><a class="row" href="deliveries.hbs">Dostawy</a></li>
-        <li><a class="row" href="index.hbs">Wróć</a></li>
+        <li><a class="row" href="deliveries">Dostawy</a></li>
+        <li><a class="row" href="index">Wróć</a></li>
     </ul>
     <div>
         <div>
             <ul>
-                <li><a class="value-box"><p class="value">{{reactor.0.Imie}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.Nazwisko}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.StanRoboczy}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.Stanowisko}}</p></a></li>
+                <li><a class="value-box"><p class="value">{{workers.0.Id}}</p></a></li>
+                <li><a class="value-box"><p class="value">{{workers.0.Imie}}</p></a></li>
+                <li><a class="value-box"><p class="value">{{workers.0.Nazwisko}}</p></a></li>
+                <li><a class="value-box"><p class="value">{{workers.0.StanRoboczy}}</p></a></li>
+                <li><a class="value-box"><p class="value">{{workers.0.Stanowisko}}</p></a></li>
             </ul>
             </ul>
             
