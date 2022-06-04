@@ -21,6 +21,23 @@ async function getbasicinfo(req, res) {
    })
 }
 
+async function getalarminfo(req, res) {
+
+  try {
+    const dbRequest = await request()
+    let result;
+    result = await dbRequest.query('SELECT * FROM Alarm');
+    alarms = result.recordset;
+    console.log(alarms)
+  } catch (err) {
+    console.error('Problem z pobraniem informacji alarmow', err)
+  }
+
+  res.render('alarms', { 
+    alarms: alarms
+   })
+}
+
 async function getworkerInfo(req, res) {
 
   try {
@@ -55,22 +72,6 @@ async function getdeliveryinfo(req, res) {
    })
 }
 
-async function getalarminfo(req, res) {
-
-  try {
-    const dbRequest = await request()
-    let result;
-    resuls = await dbRequest.query('SELECT * FROM Alarmy');
-    alarms = result.recordset;
-    console.log(alarms)
-  } catch (err) {
-    console.error('Problem z pobraniem informacji alarmow', err)
-  }
-
-  res.render('alarms', { 
-    alarms: alarms
-   })
-}
 
 async function showNewProductForm(req, res) {
   res.render('new-product', { title: 'Nowy produkt' })
