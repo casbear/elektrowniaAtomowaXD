@@ -55,4 +55,4 @@
 	INSERT INTO Alarm
 	values(
 	'test','12:55',1
-	);
+  );

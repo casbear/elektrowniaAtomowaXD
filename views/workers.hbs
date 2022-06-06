@@ -17,17 +17,28 @@
         <li><a class="row" href="index">Wróć</a></li>
     </ul>
     <div>
-        <div>
-            <ul>
-                <li><a class="value-box"><p class="value">{{workers.0.Id}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{workers.0.Imie}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{workers.0.Nazwisko}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{workers.0.StanRoboczy}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{workers.0.Stanowisko}}</p></a></li>
-            </ul>
-            </ul>
-            
-        </div>
-    </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Stan Roboczy</th>
+                <th>Stanowisko</th>
+            </tr>
+        </thead>
+    <tbody>
+        {{#each products}}
+            <tr>
+                <td>{{this.Id}}</td>
+                <td>{{this.Imie}}</td>
+                <td>{{this.Nazwisko}}</td>
+                <td>{{this.StanRoboczy}}</td>
+                <td>{{this.Stanowisko\\\}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+</div>
 </body>
 </html>
