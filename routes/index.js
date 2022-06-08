@@ -138,6 +138,9 @@ async function login(req, res) {
   }
 
 }
+function terminal(req,res) {
+  
+}
 
 function logout(req, res) {
   req.session.destroy();
@@ -145,6 +148,7 @@ function logout(req, res) {
   showProducts(req, res);
 }
 
+router.get('/terminal', terminal)
 router.get('/', getbasicinfo);
 router.get('/workers', getworkerInfo);
 router.get('/alarms', getalarminfo);
