@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/reset.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <link rel="stylesheet" href="../seven_segment/Seven Segment.ttf">
     <title>Panel Kontrolny</title>
     <title></title>
 </head>
@@ -19,8 +18,14 @@
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
     <div>
-        <input type="button">
+       <form action="/terminal" method="post">
+            <input type="text" name="term" id="term">
+            <input type="submit" value="submit">
+       </form>
+    <script>
+        
 
+    </script>
     </div>
 </body>
 </html>
