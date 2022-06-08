@@ -1,8 +1,11 @@
+const { urlencoded } = require('express')
 const express = require('express')
 const req = require('express/lib/request')
 const sql = require('mssql')
+const { route } = require('../app')
 const router = express.Router()
 const { request } = require('../database')
+router.use(urlencoded)
 
 async function getbasicinfo(req, res) {
 
@@ -160,9 +163,18 @@ async function login(req, res) {
 
 }
 async function getterminal(req, res) {
-
+  router.get('/terminal', (req, res) => {
+    res.send('<p>xd </p>')
+  })
+  router.post('/terminal', (req,res)=>{
+    console.log('jd')
+  }) 
   try {
-  } catch (err) {
+    const dbRequest = await request()
+    let result;
+
+  }
+  catch (err) {
   }
   res.render('terminal')
 }

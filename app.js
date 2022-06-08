@@ -5,9 +5,10 @@ const session = require('express-session');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
+const { urlencoded } = require('express');
+
 
 const app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -41,5 +42,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
