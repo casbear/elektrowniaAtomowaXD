@@ -16,6 +16,26 @@
         <li><a class="row" href="deliveries">Dostawy</a></li>
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
+    <select name="Filter" id="Filter">
+        <optgroup label="AlarmType">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </optgroup>
+        <optgroup label="Recent">
+            <option value="Hour">Last Hour</option>
+            <option value="Day">Last Day</option>
+            <option value="week">Last Week</option>
+            <option value="Month">Last Month</option>
+            <option value="Year">Last Year</option>
+        </optgroup>
+        <optgroup label="Reactor">
+            <option value="Reactor1">Reactor 1</option>
+            <option value="Reactor2">Reactor 2</option>
+            <option value="Reactor3">Reactor 3</option>
+            <option value="Reactor4">Reactor 4</option>
+        </optgroup>
+    </select>
     <div>
         <div>
             <ul>
@@ -24,7 +44,6 @@
                 <li><a class="value-box"><p class="value">{{alarms.0.Godzina}}</p></a></li>
                 <li><a class="value-box"><p class="value">{{alarms.0.ReaktorId}}</p></a></li>
             </ul>
-            
         </div>
     </div>
 </body>
