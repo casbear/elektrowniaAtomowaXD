@@ -138,8 +138,12 @@ async function login(req, res) {
   }
 
 }
-function terminal(req,res) {
-  
+async function getterminal(req, res) {
+
+  try {
+  } catch (err) {
+  }
+  res.render('terminal')
 }
 
 function logout(req, res) {
@@ -148,7 +152,7 @@ function logout(req, res) {
   showProducts(req, res);
 }
 
-router.get('/terminal', terminal)
+router.get('/terminal', getterminal)
 router.get('/', getbasicinfo);
 router.get('/workers', getworkerInfo);
 router.get('/alarms', getalarminfo);
