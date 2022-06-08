@@ -26,7 +26,28 @@ async function getalarminfo(req, res) {
   try {
     const dbRequest = await request()
     let result;
-    result = await dbRequest.query('SELECT * FROM Alarm');
+      if(req.query.alarm-control) {
+        switch (req.query.alarm-control) 
+        {
+          case 'Niski':
+          case 'Średni':
+          case 'Wysoki':
+            result = await dbRequest
+            .input('Priorytet', sql.VarChar(50), req.query.alarm-control)
+            .query('SELECT * FROM Alarmy WHERE TypAlarmu == @Priorytet')
+          case 'Godzina':
+          case 'Dzień':
+          case 'Tydzień':
+          case 'Miesiąc':
+            result = await dbRequest
+            .input('Godzina', sql.DateTime, req.query.alarm-control)
+            .query('Select * FROM Alarmy WHERE Godzina (DATEPART(HOUR, [Godzina]) - DATEPART(HOUR, [GETDATE()]) == 1 )')
+                  
+        }
+      }
+        
+
+ 
     alarms = result.recordset;
     console.log(alarms)
   } catch (err) {

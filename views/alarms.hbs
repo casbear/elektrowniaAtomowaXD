@@ -14,21 +14,20 @@
         <li><a class="row" href="alarms">Alarmy</a></li>
         <li><a class="row" href="workers">Pracownicy</a></li>
         <li><a class="row" href="deliveries">Dostawy</a></li>
-        <li><a class="row" href="terminal">terminal</a></li>
+        <li><a class="row" href="terminal">Terminal</a></li>
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
-    <select name="Filter" id="Filter">
+    <select name="alarm-control" id="alarm-control">
         <optgroup label="Priorytet">
             <option value="Niski">Niski</option>
             <option value="Średni">Średni</option>
             <option value="Wysoki">Wysoki</option>
         </optgroup>
-        <optgroup label="">
+        <optgroup label="Czas">
             <option value="Godzina">Ostatnia Godzina</option>
             <option value="Dzień">Ostatni Dzień</option>
             <option value="Tydzień">Ostatni Tydzień</option>
             <option value="Miesiąc">Ostatni Miesiąc</option>
-            <option value="Rok">Ostatni Rok</option>
         </optgroup>
         <optgroup label="Reaktor">
             <option value="Reactor1">Reaktor 1</option>
@@ -41,10 +40,10 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Imie</th>
-                    <th>Nazwisko</th>
-                    <th>Stan Roboczy</th>
+                    <th>Identyfikator</th>
+                    <th>Priorytet</th>
+                    <th>Data</th>
+                    <th>Id Reaktora</th>
                 </tr>
             </thead>
         <tbody>
@@ -52,8 +51,8 @@
                 <tr>
                     <td>{{this.Id}}</td>
                     <td>{{this.TypAlarmu}}</td>
-                    <td>{{this.Nazwisko}}</td>
-                    <td>{{this.StanRoboczy}}</td>
+                    <td>{{this.Godzina}}</td>
+                    <td>{{this.ReaktorId}}</td>
                 </tr>
             {{/each}}
         </tbody>

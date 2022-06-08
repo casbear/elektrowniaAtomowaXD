@@ -32,8 +32,8 @@
 
 	CREATE TABLE Alarm (
 	  Id int primary key identity,
-	  TypAlarmu varchar(50) not null,
-	  Godzina time not null,
+	  TypAlarmu varchar(50) not null check(TypAlarmu like 'Niski' or TypAlarmu like 'Średni' or TypAlarmu like 'Wysoki'),
+	  Godzina datetime not null,
 	  ReaktorId int foreign key references Reaktor(Id)
 	);
 
@@ -54,5 +54,5 @@
 	);
 	INSERT INTO Alarm
 	values(
-	'test','12:55',1
-  );
+	'test',1
+	);
