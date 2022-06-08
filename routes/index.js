@@ -127,7 +127,7 @@ async function login(req, res) {
       .input('Haslo', sql.VarChar(50), password)
       .query('SELECT Login FROM Uzytkownicy WHERE Login = @Login AND Haslo = @Haslo')
   
-    if (result.rowsAffected[0] === 1) {
+    if (result.rowsAffected[0] == 1) {
       req.session.userLogin = login;
       showProducts(req, res);
     } else {
