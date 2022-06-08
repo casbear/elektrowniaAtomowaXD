@@ -22,32 +22,47 @@ async function getbasicinfo(req, res) {
 }
 
 async function getalarminfo(req, res) {
-
   try {
     const dbRequest = await request()
     let result;
-      if(req.query.alarm-control) {
-        switch (req.query.alarm-control) 
+    console.log("getalarm has launched")
+      if(req.query.alarm_control) {
+        console.log("if(req.query.alarm_control) has been triggered, now proceding to switch")
+        switch (req.query.alarm_control) 
         {
+          /*
           case 'Niski':
-          case 'Średni':
+          case 'Sredni':
           case 'Wysoki':
             result = await dbRequest
-            .input('Priorytet', sql.VarChar(50), req.query.alarm-control)
-            .query('SELECT * FROM Alarmy WHERE TypAlarmu == @Priorytet')
+            .input('Priorytet', sql.VarChar(50), req.query.alarm_control)
+            .query('SELECT * FROM Alarm WHERE TypAlarmu like @Priorytet')
+            console.log(req.query.alarm_control + " hey?")
+          */
           case 'Godzina':
-          case 'Dzień':
-          case 'Tydzień':
-          case 'Miesiąc':
+            result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(HOUR, [Godzina]) - DATEPART(HOUR, GETDATE())) = 0')
+          case 'Dzien':
+            result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) = 0')
+          case 'Tydzien':
+            result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) >= 0 and (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) <= -6')
+          case 'Miesiac':
+            result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(MONTH, [Godzina]) - DATEPART(MONTH, GETDATE())) = 0')
+          
+         /*
+          case '1':
+          case '2':
+          case '3':
+          case '4':
             result = await dbRequest
-            .input('Godzina', sql.DateTime, req.query.alarm-control)
-            .query('Select * FROM Alarmy WHERE Godzina (DATEPART(HOUR, [Godzina]) - DATEPART(HOUR, [GETDATE()]) == 1 )')
-                  
+            .input('ReaktorId', sql.Int, req.query.alarm_control)
+            .query('Select * FROM Alarm WHERE ReaktorId = @ReaktorId')
+            */
         }
       }
-        
-
- 
+      else 
+      {
+        result = await dbRequest.query('SELECT * FROM Alarm')
+      }
     alarms = result.recordset;
     console.log(alarms)
   } catch (err) {

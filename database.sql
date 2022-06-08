@@ -5,7 +5,7 @@
 	go
 
 	CREATE TABLE Reaktor (
-	  Id int identity primary key,
+	  Id int identity primary key check(Id in (1,2,3,4)),
 	  PretyPaliwo int,
 	  PretyKontrolne int,
 	  TemperaturaReaktor int,
@@ -32,7 +32,7 @@
 
 	CREATE TABLE Alarm (
 	  Id int primary key identity,
-	  TypAlarmu varchar(50) not null check(TypAlarmu like 'Niski' or TypAlarmu like 'Średni' or TypAlarmu like 'Wysoki'),
+	  TypAlarmu varchar(50) not null check(TypAlarmu like 'Niski' or TypAlarmu like 'Sredni' or TypAlarmu like 'Wysoki'),
 	  Godzina datetime not null,
 	  ReaktorId int foreign key references Reaktor(Id)
 	);
@@ -52,7 +52,30 @@
 	values(
 	  12,20,21,5,7,8,12,34,45,65,1,13,56
 	);
-	INSERT INTO Alarm
+	INSERT INTO Reaktor
 	values(
-	'test',1
+	  12,20,21,5,7,8,12,34,45,65,1,13,56
 	);
+	INSERT INTO Reaktor
+	values(
+	  12,20,21,5,7,8,12,34,45,65,1,13,56
+	);
+	INSERT INTO Reaktor
+	values(
+	  12,20,21,5,7,8,12,34,45,65,1,13,56
+	);
+	INSERT INTO Alarm
+	values
+	('Niski','1990-08-08T15:30:15', 1);
+	INSERT INTO Alarm
+	values
+	('Sredni','1990-05-22T15:30:15', 1);
+	INSERT INTO Alarm
+	values
+	('Sredni','1990-05-22T15:30:15', 1);
+	INSERT INTO Alarm
+	values
+	('Niski','1990-05-08T15:30:15', 1);
+	INSERT INTO Alarm
+	values
+	('Wysoki','1990-06-06T23:30:15', 1);

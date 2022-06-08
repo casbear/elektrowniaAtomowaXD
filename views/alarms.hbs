@@ -17,25 +17,29 @@
         <li><a class="row" href="terminal">Terminal</a></li>
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
-    <select name="alarm-control" id="alarm-control">
-        <optgroup label="Priorytet">
-            <option value="Niski">Niski</option>
-            <option value="Średni">Średni</option>
-            <option value="Wysoki">Wysoki</option>
-        </optgroup>
-        <optgroup label="Czas">
-            <option value="Godzina">Ostatnia Godzina</option>
-            <option value="Dzień">Ostatni Dzień</option>
-            <option value="Tydzień">Ostatni Tydzień</option>
-            <option value="Miesiąc">Ostatni Miesiąc</option>
-        </optgroup>
-        <optgroup label="Reaktor">
-            <option value="Reactor1">Reaktor 1</option>
-            <option value="Reactor2">Reaktor 2</option>
-            <option value="Reactor3">Reaktor 3</option>
-            <option value="Reactor4">Reaktor 4</option>
-        </optgroup>
-    </select>
+    <form>
+        <select name="alarm_control" id="alarm-control">
+            <option value="">Żadne</option>
+            <optgroup label="Priorytet">
+                <option value='Niski'>Niski</option>
+                <option value='Sredni'>Sredni</option>
+                <option value='Wysoki'>Wysoki</option>
+            </optgroup>
+            <optgroup label="Czas">
+            <option value="Godzina">Ta Godzina</option>
+                <option value="Dzien">Ten Dzień</option>
+                <option value="Tydzien">Ostatnie Siedem Dni</option>
+                <option value="Miesiac">W tym Miesiącu</option>
+            </optgroup>
+            <optgroup label="Reaktor">
+                <option value=1>Reaktor 1</option>
+                <option value=2>Reaktor 2</option>
+                <option value=3>Reaktor 3</option>
+                <option value=4>Reaktor 4</option>
+            </optgroup>
+        </select>
+        <input type="submit" value="Wyślij">
+    </form>
     <div>
         <table class="table">
             <thead>
@@ -47,7 +51,7 @@
                 </tr>
             </thead>
         <tbody>
-            {{#each products}}
+            {{#each alarms}}
                 <tr>
                     <td>{{this.Id}}</td>
                     <td>{{this.TypAlarmu}}</td>
