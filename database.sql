@@ -66,16 +66,16 @@
 	);
 	INSERT INTO Alarm
 	values
-	('Niski','1990-08-08T15:30:15', 1);
+	('Niski','2022-06-06 15:30:15', 1);
 	INSERT INTO Alarm
 	values
-	('Sredni','1990-05-22T15:30:15', 1);
+	('Sredni','2022-06-9 08:30:15', 1);
 	INSERT INTO Alarm
 	values
-	('Sredni','1990-05-22T15:30:15', 1);
+	('Sredni','2022-06-22 15:30:15', 1);
 	INSERT INTO Alarm
 	values
-	('Niski','1990-05-08T15:30:15', 1);
+	('Niski','2022-06-08 15:30:15', 1);
 	INSERT INTO Alarm
 	values
-	('Wysoki','1990-06-06T23:30:15', 1);
+	('Wysoki','2022-06-09 23:30:15', 1);

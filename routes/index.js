@@ -1,11 +1,8 @@
-const { urlencoded } = require('express')
 const express = require('express')
 const req = require('express/lib/request')
 const sql = require('mssql')
-const { route } = require('../app')
 const router = express.Router()
 const { request } = require('../database')
-router.use(urlencoded)
 
 async function getbasicinfo(req, res) {
 
@@ -44,12 +41,16 @@ async function getalarminfo(req, res) {
           */
           case 'Godzina':
             result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(HOUR, [Godzina]) - DATEPART(HOUR, GETDATE())) = 0')
+            console.log(await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(HOUR, [Godzina]) - DATEPART(HOUR, GETDATE())) = 0'))
           case 'Dzien':
             result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) = 0')
+            console.log(await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) = 0'))
           case 'Tydzien':
             result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) >= 0 and (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) <= -6')
+            console.log(await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) >= 0 and (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) <= -6'))
           case 'Miesiac':
             result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(MONTH, [Godzina]) - DATEPART(MONTH, GETDATE())) = 0')
+            console.log( await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(MONTH, [Godzina]) - DATEPART(MONTH, GETDATE())) = 0'))
           
          /*
           case '1':
@@ -178,18 +179,9 @@ async function login(req, res) {
 
 }
 async function getterminal(req, res) {
-  router.get('/terminal', (req, res) => {
-    res.send('<p>xd </p>')
-  })
-  router.post('/terminal', (req,res)=>{
-    console.log('jd')
-  }) 
-  try {
-    const dbRequest = await request()
-    let result;
 
-  }
-  catch (err) {
+  try {
+  } catch (err) {
   }
   res.render('terminal')
 }
