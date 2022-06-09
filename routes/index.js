@@ -30,7 +30,7 @@ async function getalarminfo(req, res) {
         console.log("if(req.query.alarm_control) has been triggered, now proceding to switch")
         switch (req.query.alarm_control) 
         {
-          /*
+          
           case 'Niski':
           case 'Sredni':
           case 'Wysoki':
@@ -38,21 +38,24 @@ async function getalarminfo(req, res) {
             .input('Priorytet', sql.VarChar(50), req.query.alarm_control)
             .query('SELECT * FROM Alarm WHERE TypAlarmu like @Priorytet')
             console.log(req.query.alarm_control + " hey?")
-          */
+            break;
           case 'Godzina':
-            result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(HOUR, [Godzina]) - DATEPART(HOUR, GETDATE())) = 0')
-            console.log(await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(HOUR, [Godzina]) - DATEPART(HOUR, GETDATE())) = 0'))
+            result = await dbRequest.query('SELECT * FROM Alarm WHERE DATEDIFF(HOUR,GETDATE(), Godzina) = 0')
+            console.log('Godzina')
+            break;
           case 'Dzien':
-            result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) = 0')
-            console.log(await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) = 0'))
+            result = await dbRequest.query('SELECT * FROM Alarm WHERE DAY(GETDATE()) = DAY(Godzina)')
+            console.log('Dzien')
+            break;
           case 'Tydzien':
-            result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) >= 0 and (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) <= -6')
-            console.log(await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) >= 0 and (DATEPART(DAY, [Godzina]) - DATEPART(DAY, GETDATE())) <= -6'))
+            result = await dbRequest.query('SELECT * FROM Alarm WHERE DATEDIFF(WEEK,GETDATE(), Godzina) = 0')
+            console.log('Tydzien')
+            break;
           case 'Miesiac':
-            result = await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(MONTH, [Godzina]) - DATEPART(MONTH, GETDATE())) = 0')
-            console.log( await dbRequest.query('Select * FROM Alarm WHERE (DATEPART(MONTH, [Godzina]) - DATEPART(MONTH, GETDATE())) = 0'))
-          
-         /*
+            result = await dbRequest.query('SELECT * FROM Alarm WHERE DATEDIFF(MONTH,GETDATE(), Godzina) = 0')
+            console.log("Miesiac")
+            break;
+         
           case '1':
           case '2':
           case '3':
@@ -60,7 +63,7 @@ async function getalarminfo(req, res) {
             result = await dbRequest
             .input('ReaktorId', sql.Int, req.query.alarm_control)
             .query('Select * FROM Alarm WHERE ReaktorId = @ReaktorId')
-            */
+            break;
         }
       }
       else 

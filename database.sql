@@ -75,7 +75,13 @@
 	('Sredni','2022-06-22 15:30:15', 1);
 	INSERT INTO Alarm
 	values
-	('Niski','2022-06-08 15:30:15', 1);
+	('Niski','2022-09-08 15:30:15', 1);
 	INSERT INTO Alarm
 	values
-	('Wysoki','2022-06-09 23:30:15', 1);
+	('Wysoki','2022-06-09 22:30:15', 1);
+	INSERT INTO Alarm
+	values
+	('Wysoki','2022-06-09 11:30:15', 1)
+	INSERT INTO Alarm
+	values
+	('Niski','2021-06-09 11:30:15', 1)
