@@ -80,6 +80,17 @@ async function getalarminfo(req, res) {
     alarms: alarms
    })
 }
+async function getterminal(req, res) {
+  try {
+
+  }
+  catch (err) {
+    console.error('Problem z pobraniem informacji dostaw', err)
+  }
+  res.render('terminal', { 
+    terminal: terminal
+   })
+}
 
 async function getworkerInfo(req, res) {
 
@@ -179,14 +190,6 @@ async function login(req, res) {
   } catch (err) {
     res.render('login', {title: 'Logownie', error: 'Logowanie nieudane'})
   }
-
-}
-async function getterminal(req, res) {
-
-  try {
-  } catch (err) {
-  }
-  res.render('terminal')
 }
 
 function logout(req, res) {
