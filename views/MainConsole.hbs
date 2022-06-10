@@ -12,32 +12,32 @@
 <body>
     <ul class="navbar">
         <li><a class="row" href="alarms">Alarmy</a></li>
-        <li><a class="row" href="workers">Pracownicy</a></li>
-        <li><a class="row" href="deliveries">Dostawy</a></li>
+        <li><a class="row" href="workers" >Pracownicy</a></li>
+        <li><a class="row" href="deliveries" >Dostawy</a></li>
         <li><a class="row" href="terminal">Terminal</a></li>
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
     <div>
-        <div>
-            <ul>
-                <li><a class="value-box"><p class="value">{{reactor.0.TemperaturaReaktor}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.Temperaturapierw}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.TemperaturaWtor}}</p></a></li>
+        <div class="flex">
+            <ul class="data">
+                <li class="top"><a class="value-box"><p class="value">Temperatura Reaktora: {{reactor.0.TemperaturaReaktor}}</p></a></li>
+                <li><a class="value-box"><p class="value">Temperatura Pierwotna: {{reactor.0.Temperaturapierw}}</p></a></li>
+                <li class="bottom"><a class="value-box"><p class="value">Temperatura Wtorna: {{reactor.0.TemperaturaWtor}}</p></a></li>
             </ul>
-            <ul>
-                <li><a class="value-box"><p class="value">{{reactor.0.RadioaktywnoscPierw}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.RadioaktywnoscWtor}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.Cisnienie}}</p></a></li>
+            <ul class="data">
+                <li class="top"><a class="value-box"><p class="value">Radioaktywnosc Pierwotna: {{reactor.0.RadioaktywnoscPierw}}</p></a></li>
+                <li><a class="value-box"><p class="value">Radioaktywnosc Wtórna: {{reactor.0.RadioaktywnoscWtor}}</p></a></li>
+                <li class="bottom"><a class="value-box"><p class="value">Cisnienie: {{reactor.0.Cisnienie}}</p></a></li>
             </ul>
-            <ul>
-                <li><a class="value-box"><p class="value">{{reactor.0.PretyPaliwo}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.PretyKontrolne}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.CzyDziala}}</p></a></li>
+            <ul class="data">
+                <li class="top"><a class="value-box"><p class="value">Prety Paliwowe: {{reactor.0.PretyPaliwo}}</p></a></li>
+                <li><a class="value-box"><p class="value">Prety Kontrolne: {{reactor.0.PretyKontrolne}}</p></a></li>
+                <li class="bottom"><a class="value-box"><p class="value">Czy jest aktywny:{{reactor.0.CzyDziala}}</p></a></li>
             </ul>
-            <ul>
-                <li><a class="value-box"><p class="value">{{reactor.0.ProdukcjaPrad}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.ZapotrzebowaniePrad}}</p></a></li>
-                <li><a class="value-box"><p class="value">{{reactor.0.ZużyciePrad}}</p></a></li>
+            <ul class="data">
+                <li class="top"><a class="value-box"><p class="value">Produkcja pradu: {{reactor.0.ProdukcjaPrad}}</p></a></li>
+                <li><a class="value-box"><p class="value">Zapotrzebowanie Pradu: {{reactor.0.ZapotrzebowaniePrad}}</p></a></li>
+                <li class="bottom"><a class="value-box"><p class="value">Zuzycie Pradu: {{reactor.0.ZużyciePrad}}</p></a></li>
             </ul>     
         </div>
     </div>
