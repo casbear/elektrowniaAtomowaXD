@@ -30,7 +30,6 @@ async function getalarminfo(req, res) {
         console.log("if(req.query.alarm_control) has been triggered, now proceding to switch")
         switch (req.query.alarm_control) 
         {
-          
           case 'Niski':
           case 'Sredni':
           case 'Wysoki':
@@ -79,10 +78,49 @@ async function getalarminfo(req, res) {
   res.render('alarms', { 
     alarms: alarms
    })
+
 }
 async function getterminal(req, res) {
   try {
-
+    const dbRequest = await request()
+    let result;
+    if(req.query.action_control)
+    {
+      switch(req.query.action_control)
+      {
+        case 'insert':
+          if(req.body.arg1 == 'Alarm')
+          {
+            result = await dbRequest
+            .input('tablename', sql.VarChar, req.body.arg1)
+            .input('value1', sql.VarChar, req.body.arg2)
+            .input('value2', sql.VarChar, req.body.arg3)
+            .input('value3', sql.VarChar, req.body.arg4)
+            .query('INSERT INTO @tablename values(value1,value2,value3);')
+          }
+          else if(req.body.arg1 == 'Pracownik')
+          {
+            result = await dbRequest
+            .input('tablename', sql.VarChar, req.body.arg1)
+            .input('value1', sql.VarChar, req.body.arg2)
+            .input('value2', sql.VarChar, req.body.arg3)
+            .input('value3', sql.VarChar, req.body.arg4)
+            .input('value4', sql.VarChar, req.body.arg5)
+            .query('INSERT INTO @tablename values(value1,value2,value3,value4);')
+          }
+          
+        case 'delete':
+          result = await dbRequest
+          .input()
+          .input()
+          .query()
+      }
+    }
+    else
+    {
+      result = {}
+    }
+    terminal = result.recordset
   }
   catch (err) {
     console.error('Problem z pobraniem informacji dostaw', err)
