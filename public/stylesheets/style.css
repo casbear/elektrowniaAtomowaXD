@@ -21,6 +21,16 @@ background-image: url('../images/steelsheet.png')
     margin: 0;
     padding: 0;;
     overflow: hidden;
+    background-image: url('../images/metal-plate-MXI18442.jpg');
+    width: 600px;
+    margin-bottom: 20px;
+    box-shadow: 10px 5px 5px black;
+}
+.navbar a {
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+    padding-left: 25px;
 }
 
 .row {
@@ -39,4 +49,27 @@ background-image: url('../images/steelsheet.png')
 }
 .value {
     font-family: Segmented;
+}
+
+.data {
+    margin-bottom: 20px;
+    font-size: 48px;
+    margin-left: 10px;
+    width: 720px;
+    background-image: url(../images/metal_rivets.jpg);
+    box-shadow: 10px 5px 5px black;
+}
+.data li {
+    padding: 10px;
+    padding-left: 50px;
+}
+.data .top {
+    padding-top: 50px;
+}
+.data .bottom {
+    padding-bottom: 90px;
+}
+.flex {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
