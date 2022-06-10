@@ -91,39 +91,43 @@ async function getterminal(req, res) {
         case 'insert':
           if(req.body.arg1 == 'Alarm')
           {
-            result = await dbRequest
+            await dbRequest
             .input('tablename', sql.VarChar, req.body.arg1)
             .input('value1', sql.VarChar, req.body.arg2)
             .input('value2', sql.VarChar, req.body.arg3)
             .input('value3', sql.VarChar, req.body.arg4)
             .query('INSERT INTO @tablename values(value1,value2,value3);')
+            console.log('insert launched')
           }
           else if(req.body.arg1 == 'Pracownik')
           {
-            result = await dbRequest
+            await dbRequest
             .input('tablename', sql.VarChar, req.body.arg1)
             .input('value1', sql.VarChar, req.body.arg2)
             .input('value2', sql.VarChar, req.body.arg3)
             .input('value3', sql.VarChar, req.body.arg4)
             .input('value4', sql.VarChar, req.body.arg5)
             .query('INSERT INTO @tablename values(value1,value2,value3,value4);')
+            console.log('insert lauched')
           }
           
         case 'delete':
-          result = await dbRequest
-          .input()
-          .input()
-          .query()
-      }
+          if(req.body.arg1 == 'Alarm' || 'Pracownik')
+          {
+            await dbRequest
+            .input('tablename', sql.VarChar, req.body.arg1)
+            .input('value1', sql.VarChar, req.body.arg2)
+            .input('value2', sql.VarChar, req.body.arg3)
+            .input('value3', sql.VarChar, req.body.arg4)
+            .query('DELETE FROM  @tablename WHERE value1 = value2;')
+          }
+        }
     }
-    else
-    {
-      result = {}
-    }
+    result = {}
     terminal = result.recordset
   }
   catch (err) {
-    console.error('Problem z pobraniem informacji dostaw', err)
+    console.error('Problem z pobraniem informacji terminalu', err)
   }
   res.render('terminal', { 
     terminal: terminal
@@ -242,7 +246,7 @@ router.get('/workers', getworkerInfo);
 router.get('/alarms', getalarminfo);
 router.get('/deliveries', getdeliveryinfo);
 router.get('/login', showLoginForm);
-router.post('/login', login);
+router.post('/terminal', getterminal);
 router.post('/logout', logout); 
 
 module.exports = router;
