@@ -10,7 +10,7 @@
     <title>Panel Kontrolny</title>
     <title></title>
 </head>
-<body onload="site_load()">
+<body>
     <ul class="navbar">
         <li><a class="row" href="alarms">Alarmy</a></li>
         <li><a class="row" href="workers">Pracownicy</a></li>
@@ -19,39 +19,10 @@
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
     <div>
-        <select name="action_control" id="terminal_option_id">
-            <option value=""></option>
-            <option value="insert">Dodaj</option>
-            <option value="delete">Usuń</option>
-            <option value="update">Zmień</option>
-        </select>
-    </div>
-    <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th id="th1">Tabela</th>
-                    <th id="th2">Wartość 1</th>
-                    <th id="th3">Wartość 2</th>
-                    <th id="th4">Wartość 3</th>
-                    <th id="th5">Wartość 4</th>
-                </tr>
-            </thead>
-        <tbody>
-                <tr>
-                    <form method="POST">
-                    <td><input type="text" name="arg1"></td>
-                    <td><input type="text" name="arg2"></td>
-                    <td><input type="text" name="arg3"></td>
-                    <td><input type="text" name="arg4"></td>
-                    <td><input type="text" name="arg5"></td>
-                    <td><input type="submit" value="submit"></td>
-                    </form>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div>  
+        <a href="new_alarm"><button>Dodaj Alarm</button></a>
+        <a href="delete_alarm"><button>Usuń Alarm</button></a>
+        <a href="new_worker"><button>Dodaj Pracownika</button></a>
+        <a href="delete_worker"><button>Usuń Pracownika</button></a>
     </div>
 </body>
 </html>

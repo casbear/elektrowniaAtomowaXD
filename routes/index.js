@@ -1,3 +1,4 @@
+const { raw } = require('express')
 const express = require('express')
 const req = require('express/lib/request')
 const sql = require('mssql')
@@ -80,58 +81,132 @@ async function getalarminfo(req, res) {
    })
 
 }
-async function getterminal(req, res) {
+async function sendtoterminal(req, res, next) {
   try {
-    const dbRequest = await request()
-    let result;
-    if(req.query.action_control)
+    console.log('hey i work!')
+    console.log('hey, action control is not empty!!')
+    switch(req.query.action_control)
     {
-      switch(req.query.action_control)
-      {
-        case 'insert':
-          if(req.body.arg1 == 'Alarm')
-          {
-            await dbRequest
-            .input('tablename', sql.VarChar, req.body.arg1)
-            .input('value1', sql.VarChar, req.body.arg2)
-            .input('value2', sql.VarChar, req.body.arg3)
-            .input('value3', sql.VarChar, req.body.arg4)
-            .query('INSERT INTO @tablename values(value1,value2,value3);')
-            console.log('insert launched')
-          }
-          else if(req.body.arg1 == 'Pracownik')
-          {
-            await dbRequest
-            .input('tablename', sql.VarChar, req.body.arg1)
-            .input('value1', sql.VarChar, req.body.arg2)
-            .input('value2', sql.VarChar, req.body.arg3)
-            .input('value3', sql.VarChar, req.body.arg4)
-            .input('value4', sql.VarChar, req.body.arg5)
-            .query('INSERT INTO @tablename values(value1,value2,value3,value4);')
-            console.log('insert lauched')
-          }
-          
-        case 'delete':
-          if(req.body.arg1 == 'Alarm' || 'Pracownik')
-          {
-            await dbRequest
-            .input('tablename', sql.VarChar, req.body.arg1)
-            .input('value1', sql.VarChar, req.body.arg2)
-            .input('value2', sql.VarChar, req.body.arg3)
-            .input('value3', sql.VarChar, req.body.arg4)
-            .query('DELETE FROM  @tablename WHERE value1 = value2;')
-          }
+        
+      case 'insert':
+        if(req.body.arg1 == 'Alarm')
+        {
+          const dbRequest = await request()
+          await dbRequest
+          .input('tablename', sql.VarChar, req.body.arg1)
+          .input('value1', sql.VarChar, req.body.arg2)
+          .input('value2', sql.VarChar, req.body.arg3)
+          .input('value3', sql.VarChar, req.body.arg4)
+          .query('INSERT INTO @tablename values(value1,value2,value3);')
+          console.log('insert launched')
+          res.message ='dodano'
         }
-    }
-    result = {}
-    terminal = result.recordset
+        
+        else if(req.body.arg1 == 'Pracownik')
+        {
+          const dbRequest = await request()
+          await dbRequest
+          .input('tablename', sql.VarChar, req.body.arg1)
+          .input('value1', sql.VarChar, req.body.arg2)
+          .input('value2', sql.VarChar, req.body.arg3)
+          .input('value3', sql.VarChar, req.body.arg4)
+          .input('value4', sql.VarChar, req.body.arg5)
+          .query('INSERT INTO @tablename values(value1,value2,value3,value4);')
+          console.log('insert lauched')
+          res.message = 'dodano'
+        }
+        
+      case 'delete':
+        if(req.body.arg1 == 'Alarm' || 'Pracownik')
+        {
+          const dbRequest = await request()
+          await dbRequest
+          .input('tablename', sql.VarChar, req.body.arg1)
+          .input('value1', sql.VarChar, req.body.arg2)
+          .input('value2', sql.VarChar, req.body.arg3)
+          .input('value3', sql.VarChar, req.body.arg4)
+          .query('DELETE FROM  @tablename WHERE value1 = value2;')
+          res.message = 'usunieto'
+        }
+        console.log("hey i switched!!")
+      }
   }
   catch (err) {
     console.error('Problem z pobraniem informacji terminalu', err)
   }
-  res.render('terminal', { 
-    terminal: terminal
-   })
+  getterminal(req, res)
+}
+
+async function add_alarm(req, res)
+{
+  res.render('new_alarm')
+}
+async function del_alarm(req, res)
+{
+  res.render('delete_alarm')
+}
+async function add_worker(req, res)
+{
+  res.render('new_worker')
+}
+async function del_worker(req, res)
+{
+  res.render('delete_worker')
+}
+async function post_alarm_add(req, res, next)
+{
+  try 
+  {
+    const dbRequest = await request()
+    await dbRequest
+      .input('Priotity', sql.VarChar, req.body.arg_aa1)
+      .input('Date', sql.DateTime, req.body.arg_aa2)
+      .input('Reaktor', sql.Int, req.body.arg_aa3)
+      .query('INSERT INTO Alarm VALUES (@Priority, @Date, @Reaktor)')
+  }
+  catch (err) 
+  {
+    console.log(err)
+  }
+  getterminal(req, res)
+}
+async function post_worker_add(req, res, next)
+{
+  try 
+  {
+    const dbRequest = await request()
+    await dbRequest
+      .input('Imie', sql.VarChar, req.body.arg_aw1)
+      .input('Nazwisko', sql.VarChar, req.body.arg_aw2)
+      .input('StanRoboczy', sql.Bit, req.body.arg_aw3)
+      .input('Stanowisko', sql.VarChar, req.body.arg_aw4)
+      .query('INSERT INTO Pracownik VALUES (@Imie, @Nazwisko, @StanRoboczy, @Stanowisko)')
+  }
+  catch (err) 
+  {
+    console.log(err)
+  }
+  getterminal(req, res)
+}
+async function post_alarm_del(req, res, next)
+{
+  try
+  {
+    const dbRequest = await request()
+    await dbRequest
+      .input('column', sql.VarChar, req.body.arg_ad1)
+      .input('condition', sql.VarChar, req.body.arg_ad2)
+  }
+  catch (err) 
+  {
+    console.log(err)
+  }
+  getterminal(req, res)
+}
+
+async function getterminal(req, res)
+{
+  res.render('terminal')
 }
 
 async function getworkerInfo(req, res) {
@@ -241,12 +316,13 @@ function logout(req, res) {
 }
 
 router.get('/terminal', getterminal)
+router.post('/new_alarm', post_alarm_add);
+router.get('/new_alarm', add_alarm)
 router.get('/', getbasicinfo);
 router.get('/workers', getworkerInfo);
 router.get('/alarms', getalarminfo);
 router.get('/deliveries', getdeliveryinfo);
 router.get('/login', showLoginForm);
-router.post('/terminal', getterminal);
 router.post('/logout', logout); 
 
 module.exports = router;
