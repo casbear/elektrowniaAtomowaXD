@@ -23,7 +23,7 @@
 
 
 	CREATE TABLE Pracownik (
-	  Id int primary key,
+	  Id int primary key identity,
 	  Imie varchar(30) check(len(Imie)>3),
 	  Nazwisko varchar(30) check(len(Nazwisko)>3),
 	  StanRoboczy bit,
