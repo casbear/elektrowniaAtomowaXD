@@ -163,9 +163,9 @@ async function post_alarm_add(req, res, next)
       .input('Date', sql.DateTime, req.body.arg_aa2)
       .input('Reaktor', sql.Int, req.body.arg_aa3)
       .query('INSERT INTO Alarm VALUES (@Priority, @Date, @Reaktor)')
-     /* console.log(req.body.arg_aa1)
+      console.log(req.body.arg_aa1)
       console.log(req.body.arg_aa2)
-      console.log(req.body.arg_aa3)*/
+      console.log(req.body.arg_aa3)
   }
   catch (err) 
   {
@@ -197,8 +197,8 @@ async function post_alarm_del(req, res, next)
   {
     const dbRequest = await request()
     await dbRequest
-      .input('column', sql.VarChar, req.body.arg_ad1)
-      .input('condition', sql.VarChar, req.body.arg_ad2)
+      .input('id', sql.Int, req.body.arg_da)
+      .query('delete from Alarm where Id = @id')
   }
   catch (err) 
   {
@@ -206,6 +206,22 @@ async function post_alarm_del(req, res, next)
   }
   getterminal(req, res)
 }
+async function post_worker_del(req, res, next)
+{
+  try
+  {
+    const dbRequest = await request()
+    await dbRequest
+      .input('id', sql.Int, req.body.arg_dw)
+      .query('Delete from Pracownik where Id = @id')
+  }
+  catch (err) 
+  {
+    console.log(err)
+  }
+  getterminal(req, res)
+}
+
 
 async function getterminal(req, res)
 {
@@ -247,85 +263,18 @@ async function getdeliveryinfo(req, res) {
 }
 
 
-async function showNewProductForm(req, res) {
-  res.render('new-product', { title: 'Nowy produkt' })
-}
-
-async function addNewProduct(req, res, next) {
-  try {
-    const dbRequest = await request()
-    await dbRequest
-      .input('Nazwa', sql.VarChar(50), req.body.nazwa)
-      .input('Kategoria', sql.VarChar(50), req.body.kategoria)
-      .input('Cena', sql.Money, parseFloat(req.body.cena))
-      .input('Ilosc', sql.SmallInt, parseInt(req.body.ilosc, 10))
-      .query('INSERT INTO Produkty VALUES (@Nazwa, @Kategoria, @Ilosc, @Cena)')
-
-    res.message = 'Dodano nowy produkt'
-  } catch (err) {
-    console.error('Nie udało się dodać produktu', err)
-  }
-
-  showProducts(req, res)
-}
-
-async function deleteProduct(req, res) {
-
-  try {
-    const dbRequest = await request()
-
-    await dbRequest
-      .input('Id', sql.INT, req.params.id)
-      .query('DELETE FROM Produkty WHERE Id = @Id')
-  } catch (err) {
-    console.error('Nie udało się usunąć produktu', err)
-  }
-
-  res.message = `Usunięto produkt o id ${req.params.id}`;
-
-  showProducts(req, res)
-}
-
-async function showLoginForm(req, res) {
-  res.render('login', { title: 'Logowanie' })
-}
-
-async function login(req, res) {
-  const {login, password} = req.body;
-
-  try {
-    const dbRequest = await request()
-
-    const result = await dbRequest
-      .input('Login', sql.VarChar(50), login)
-      .input('Haslo', sql.VarChar(50), password)
-      .query('SELECT Login FROM Uzytkownicy WHERE Login = @Login AND Haslo = @Haslo')
-  
-    if (result.rowsAffected[0] == 1) {
-      req.session.userLogin = login;
-      showProducts(req, res);
-    } else {
-      res.render('login', {title: 'Logownie', error: 'Logowanie nieudane'})
-    }
-  } catch (err) {
-    res.render('login', {title: 'Logownie', error: 'Logowanie nieudane'})
-  }
-}
-
-function logout(req, res) {
-  req.session.destroy();
-
-  showProducts(req, res);
-}
-
 router.get('/terminal', getterminal)
 router.post('/new_alarm', post_alarm_add);
 router.get('/new_alarm', add_alarm)
+router.get('/new_worker', add_worker)
+router.post('/new_worker', post_worker_add)
+router.get('/delete_alarm', del_alarm)
+router.post('/delete_alarm', post_alarm_del)
+router.get('/delete_worker', del_worker)
+router.post('.delete_worker', post_worker_del)
 router.get('/', getbasicinfo);
 router.get('/workers', getworkerInfo);
 router.get('/alarms', getalarminfo);
 router.get('/deliveries', getdeliveryinfo);
-router.get('/login', showLoginForm);
-router.post('/logout', logout); 
 
 module.exports = router;
