@@ -159,10 +159,13 @@ async function post_alarm_add(req, res, next)
   {
     const dbRequest = await request()
     await dbRequest
-      .input('Priotity', sql.VarChar, req.body.arg_aa1)
+      .input('Priority', sql.VarChar, req.body.arg_aa1)
       .input('Date', sql.DateTime, req.body.arg_aa2)
       .input('Reaktor', sql.Int, req.body.arg_aa3)
       .query('INSERT INTO Alarm VALUES (@Priority, @Date, @Reaktor)')
+     /* console.log(req.body.arg_aa1)
+      console.log(req.body.arg_aa2)
+      console.log(req.body.arg_aa3)*/
   }
   catch (err) 
   {
