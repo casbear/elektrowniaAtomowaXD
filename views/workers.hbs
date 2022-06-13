@@ -20,26 +20,26 @@
     <div>
         <table class="table">
             <thead>
-            <tr>
-                <th>Id</th>
-                <th>Imie</th>
-                <th>Nazwisko</th>
-                <th>Stan Roboczy</th>
-                <th>Stanowisko</th>
-            </tr>
-        </thead>
-    <tbody>
-        {{#each workers}}
-            <tr>
-                <td>{{this.Id}}</td>
-                <td>{{this.Imie}}</td>
-                <td>{{this.Nazwisko}}</td>
-                <td>{{this.StanRoboczy}}</td>
-                <td>{{this.Stanowisko}}</td>
-            </tr>
-        {{/each}}
-    </tbody>
-</table>
-</div>
+                <tr class="classification">
+                    <th>Id</th>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                    <th>Stan Roboczy</th>
+                    <th>Stanowisko</th>
+                </tr>
+            </thead>
+            <tbody class="dataBox">
+                {{#each workers}}
+                    <tr>
+                        <td class="box-data">{{this.Id}}</td>
+                        <td class="box-data">{{this.Imie}}</td>
+                        <td class="box-data">{{this.Nazwisko}}</td>
+                        <td class="box-data">{{this.StanRoboczy}}</td>
+                        <td class="box-data">{{this.Stanowisko}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

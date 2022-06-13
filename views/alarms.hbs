@@ -17,7 +17,7 @@
         <li><a class="row" href="terminal">Terminal</a></li>
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
-    <form>
+    <form class="filtr">
         <select name="alarm_control" id="alarm-control" class="alarm_control">
             <option value="">Żadne</option>
             <optgroup label="Priorytet">
@@ -38,25 +38,25 @@
                 <option value=4>Reaktor 4</option>
             </optgroup>
         </select>
-        <input type="submit" value="Wyślij">
+        <input type="submit" value="Wyślij" class="filtr_sub">
     </form>
     <div>
         <table class="table">
-            <thead class="classification">
-                <tr>
+            <thead>
+                <tr class="classification">
                     <th>Id</th>
                     <th>Priorytet</th>
                     <th>Data</th>
                     <th>Id Reaktora</th>
                 </tr>
             </thead>
-            <tbody class="alarms">
+            <tbody class="dataBox">
                 {{#each alarms}}
                     <tr>
-                        <td class="alarm-data">{{this.Id}}</td>
-                        <td class="alarm-data">{{this.TypAlarmu}}</td>
-                        <td class="alarm-data godzina" >{{this.Godzina}}</td>
-                        <td class="alarm-data">{{this.ReaktorId}}</td>
+                        <td class="box-data">{{this.Id}}</td>
+                        <td class="box-data">{{this.TypAlarmu}}</td>
+                        <td class="box-data godzina" >{{this.Godzina}}</td>
+                        <td class="box-data">{{this.ReaktorId}}</td>
                     </tr>
                 {{/each}}
             </tbody>

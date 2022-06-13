@@ -78,12 +78,32 @@ background-image: url('../images/steelsheet.png')
 }
 
 /* ALARMS ========================================================== */
+.filtr {
+    display: flex;
+    justify-content: center;
+}
+.filtr_sub {
+    justify-self: center;
+}
+.alarm_control {
+    font-size: 36px;
+    background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
+    background-size: contain;
+    color:lightgray;    
+}
+.filtr input {
+    font-size: 24px;
+    background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
+    background-size: cover;
+    color:lightgray;
+    border-width: 1px;
+}
 
-.alarms {
+.dataBox {
     font-family: Segmented;
     font-size: 32px;
 }
-.alarm-data{
+.box-data{
     padding-left: 50px;
     padding-right: 45px;
 }
@@ -99,8 +119,8 @@ background-image: url('../images/steelsheet.png')
     margin-left: auto;
     margin-right: auto;
     background-image: url('../images/metal_rivets.jpg');
-    width:auto;
-    background-size: contain;
+    width:80%;
+    background-size: cover;
 }
 
 table::before {
@@ -119,7 +139,85 @@ thead::before {
     height: 40px;
 }
 
-.alarm_control {
+
+/* DELIVERIES */
+
+.table-deliv {
     margin-left: auto;
     margin-right: auto;
+    background-image: url('../images/metal_rivets.jpg');
+    width:80%;
+    background-size: contain;
+}
+
+/* TERMINAL */
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    justify-content: center;
+}
+.link button{
+    font-size: 50px;
+    width: 500px;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: 80px;
+    background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
+    background-size: contain;
+    color:lightgray;
+}
+
+/* ADD */
+
+.post {
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%;
+
+}
+.post_child {
+    font-size: 36px;
+    width: 24%;
+    background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
+    background-size: contain;
+    color:lightgray;
+    
+}
+
+.post_child_w {
+    font-size: 36px;
+    width: 19%;
+    background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
+    background-size: contain;
+    color:lightgray;
+    
+}
+
+/* DELETE */
+
+.del {
+    width: 25%;
+    font-size: 36px;
+    background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
+    background-size: contain;
+    color:lightgray;
+}
+.del_sub {
+    width: 10%;
+    font-size: 36px;
+    background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
+    background-size: contain;
+    color:lightgray;
+}
+.lab {
+    border-width: 2px;
+    border-style: inset;
+    border-color: rgb(118, 118, 118);
+    border-image: initial;
+    font-size: 39px;
+    background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
+    background-size: cover;
+    color:lightgray;
 }

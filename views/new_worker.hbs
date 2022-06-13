@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/reset.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <title>Document</title>
 </head>
 <body>
+    <ul class="navbar">
+        <li><a class="row" href="alarms">Alarmy</a></li>
+        <li><a class="row" href="workers">Pracownicy</a></li>
+        <li><a class="row" href="deliveries">Dostawy</a></li>
+        <li><a class="row" href="terminal">Terminal</a></li>
+        <li><a class="row" href="/">Wróć</a></li>
+    </ul>
     <div>
-        <form method="post">
-            <input type="text" name="arg_aw1">
-            <input type="text" name="arg_aw2">
-            <input type="text" name="arg_aw3">
-            <input type="text" name="arg_aw4">
-            <input type="submit">
+        <form method="post" class="post">
+            <input type="text" name="arg_aw1" value="imie"  class="post_child_w">
+            <input type="text" name="arg_aw2" value="nazwisko"  class="post_child_w">
+            <input type="text" name="arg_aw3" value="stan" class="post_child_w">
+            <input type="text" name="arg_aw4" value="stanowisko" class="post_child_w">
+            <input type="submit" class="post_child_w">
         </form>
     </div>
 </body>
