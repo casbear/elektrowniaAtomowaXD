@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/reset.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <link rel="stylesheet" href="../seven_segment/Seven Segment.ttf">
+
     <title>Panel Kontrolny</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
     <form>
-        <select name="alarm_control" id="alarm-control">
+        <select name="alarm_control" id="alarm-control" class="alarm_control">
             <option value="">Żadne</option>
             <optgroup label="Priorytet">
                 <option value='Niski'>Niski</option>
@@ -42,25 +42,25 @@
     </form>
     <div>
         <table class="table">
-            <thead>
+            <thead class="classification">
                 <tr>
-                    <th>Identyfikator</th>
+                    <th>Id</th>
                     <th>Priorytet</th>
                     <th>Data</th>
                     <th>Id Reaktora</th>
                 </tr>
             </thead>
-        <tbody>
-            {{#each alarms}}
-                <tr>
-                    <td>{{this.Id}}</td>
-                    <td>{{this.TypAlarmu}}</td>
-                    <td>{{this.Godzina}}</td>
-                    <td>{{this.ReaktorId}}</td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
+            <tbody class="alarms">
+                {{#each alarms}}
+                    <tr>
+                        <td class="alarm-data">{{this.Id}}</td>
+                        <td class="alarm-data">{{this.TypAlarmu}}</td>
+                        <td class="alarm-data godzina" >{{this.Godzina}}</td>
+                        <td class="alarm-data">{{this.ReaktorId}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
