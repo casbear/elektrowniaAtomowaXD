@@ -18,24 +18,24 @@
         <li><a class="row" href="/">Wróć</a></li>
     </ul>
     <div>
-        <table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Typ Dostawy</th>
-            <th>Godzina Dostawy</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each products}}
-        <tr>
-            <td>{{this.Id}}</td>
-            <td>{{this.TypDostawy}}</td>
-            <td>{{this.Godzina}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+        <table class="table-deliv">
+            <thead>
+                <tr class="classification">
+                    <th>Id</th>
+                    <th>Typ Dostawy</th>
+                    <th>Godzina Dostawy</th>
+                </tr>
+            </thead>
+            <tbody class="data-box">
+                {{#each products}}
+                <tr>
+                    <td>{{this.Id}}</td>
+                    <td>{{this.TypDostawy}}</td>
+                    <td>{{this.Godzina}}</td>
+                </tr>
+                {{/each}}
+            </tbody>    
+        </table>
     </div>
 </body>
 </html>
