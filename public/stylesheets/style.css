@@ -58,7 +58,7 @@ background-image: url('../images/steelsheet.png')
     margin-bottom: 20px;
     font-size: 48px;
     margin-left: 10px;
-    width: 720px;
+    width: 95%;
     background-image: url(../images/metal_rivets.jpg);
     box-shadow: 10px 5px 5px black;
 }
@@ -183,7 +183,12 @@ thead::before {
     background-image: url('../images/1000_F_93902020_FF0enrpr1ylRNOkw3CV3lA5NAdgdr0tw.jpg');
     background-size: contain;
     color:lightgray;
-    
+}
+.post_child::placeholder{
+    color: lightgray;
+}
+.post_child_w::placeholder{
+    color: lightgray;
 }
 
 .post_child_w {
