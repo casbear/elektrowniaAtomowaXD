@@ -222,7 +222,7 @@ async function getdeliveryinfo(req, res) {
 
 
 router.get('/terminal', getterminal)
-router.post('/new_alarm', post_alarm_add);
+router.post('/new_alarm', post_alarm_add)
 router.get('/new_alarm', add_alarm)
 router.get('/new_worker', add_worker)
 router.post('/new_worker', post_worker_add)
